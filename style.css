@@ -1,0 +1,801 @@
+/*
+--------------------------
+Namn: Giuliana Rivera
+skola: Ehrensvärska Gymnasiet 
+Klass: TE2A
+e-mail: giulianabelen.riverarecinos.e@skola.karlskrona.se
+Version:
+Dokument namn: style.css
+Senaste uppdateringen:
+--------------------------
+*/
+
+/******** GENERELLA STILAR ********/
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #1861a6; /* Blå bakgrund för hela hemsidan */
+}
+
+
+
+/******** MENY ********/
+.navbar {
+    display: flex;
+    font-family:Arial, Helvetica, sans-serif;
+    justify-content: center; /* Centrerar de olika items */
+    align-items: center;
+    background: #061d41; /* Färgen för menybaren */
+    padding: 20px 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 30px; /* Plats mellan de olika items som finns i menyn */
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    color: #c0caef; /*Den blir ljusare när man håller musen på varje item  */
+    font-weight: bold;
+}
+
+
+/*-*-*-* MEDIA QUERIES FÖR MENYN *-*-*-*/
+@media (max-width: 1024px) {
+    .navbar {
+        display: flex;
+        flex-direction:column;
+        align-items: flex-start;
+    }
+
+    .navbar a {
+        padding: 10px 0;
+        text-align: left;
+        width: 100%;
+    }
+}
+
+
+
+/******** BILD KARUSELL ********/
+
+/* KARUSELL BILDER */
+
+/* Bilder  */
+.slides {
+    display: flex;
+    width: 300%; /* Adjust based on the number of images */
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100vh; /* Höjden för själva bilderna */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Knapparna som man navigerar menyn med */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Knapparna för att navigera karrusellen blir ljusare */
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+/* Karusell stilar */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    height: 550px;
+    overflow: hidden;
+    border-bottom: 4px solid rgb(104, 205, 236);
+}
+
+.carousel-container {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+}
+
+/* Knappar för att navigera */
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.caption {
+    position: absolute;
+    bottom: 45px;
+    left: 295px;
+    transform: translateX(-50%);
+    background: rgba(1, 15, 55, 0.7); /* Mörk transparent bakgrund */
+    color: white;
+    padding: 10px 40px;
+    border-radius: 5px;
+    font-size: 60px;
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+
+/*-*-*-* MEDIA QUERIES FÖR BILDKARUSELL *-*-*-*/
+
+/* För mobiltelefoner (maxbredd 600px) */
+@media (max-width: 600px) {
+    .carousel {
+        height: 250px;
+    }
+
+    .slide {
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .caption {
+        font-size: 18px;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px 15px;
+    }
+
+    .prev, .next {
+        font-size: 18px;
+        padding: 6px 10px;
+    }
+}
+
+/* För surfplattor (601px till 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .carousel {
+        height: 400px;
+    }
+
+    .slide {
+        height: 400px;
+    }
+
+    .caption {
+        font-size: 32px;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 8px 25px;
+    }
+
+    .prev, .next {
+        font-size: 22px;
+        padding: 8px 12px;
+    }
+}
+
+/* Extra styling för stora skärmar */
+@media (min-width: 1400px) {
+    .carousel {
+        height: 600px;
+    }
+
+    .slide {
+        height: 600px;
+    }
+
+    .caption {
+        font-size: 64px;
+    }
+}
+
+
+
+/******** INFORMATION UNDER BILDKARUSELLEN (små artiklar eller information om kvinnlig basket i El Salvador) ********/
+
+ .articles-container {
+    display: flex;
+    flex-direction: column; /* Lägger artiklarna i en kolumn */
+     align-items: center; /*Centrerar dem i mitten av sidan */
+     margin-top: 20px; 
+     gap: 30px; /*Lägger avstånd mellan artiklarna */ 
+     padding-bottom: 15px;
+ }
+
+.article {
+    display: flex;
+    width: 80%; 
+    background: #ffffff;
+    padding: 15px;
+    
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(4, 10, 38, 0.1);
+}
+
+.article img {
+    width: 350px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 15px;
+    
+}
+
+ .article-text h3 {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;  
+     border-bottom: 3px rgb(1, 3, 39) ; 
+     font-size: 30px;
+    
+    color: #333;
+}
+
+.article-text h3 :hover {
+    text-decoration: underline 3px;
+    font-weight: bold;
+}
+
+.article-text a{
+    text-decoration: none;
+}
+
+.article-text p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: #100a4d;
+
+} 
+
+article h3 {
+    margin-bottom: 10px; /* Lägger till lite utrymme mellan rubrik och text */
+ } 
+
+ article p {
+    margin-top: 0; /* Säkerställer att inget extra utrymme finns ovanför texten */
+}  
+
+/*-*-*-* MEDIA QUERIES FÖR ARTIKLARNA *-*-*-*/
+
+/* För mobiltelefoner (max-width: 600px) */
+@media (max-width: 600px) {
+    .article {
+        flex-direction: column; /* Stapla bild över text */
+        width: 95%;
+        padding: 20px;
+    }
+
+    .article img {
+        width: 100%;
+        margin: 0 0 15px 0;
+    }
+
+    .article-text h3 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .article-text p {
+        font-size: 16px;
+        text-align: justify;
+    }
+}
+
+/* För surfplattor (601px till 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .article {
+        flex-direction: row;
+        width: 90%;
+    }
+
+    .article img {
+        width: 250px;
+    }
+
+    .article-text h3 {
+        font-size: 26px;
+    }
+
+    .article-text p {
+        font-size: 18px;
+    }
+}
+
+/* För mycket stora skärmar (valfritt) */
+@media (min-width: 1400px) {
+    .article {
+        width: 70%;
+    }
+
+    .article img {
+        width: 400px;
+    }
+
+    .article-text h3 {
+        font-size: 34px;
+    }
+
+    .article-text p {
+        font-size: 22px;
+    }
+}
+
+
+
+/******** SIDFOT ********/
+
+.footer {
+    background: #061d41; /* Mörkblå bakgrund (Samma som menyn) */
+    color: white; 
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+
+.footer-section a:hover {
+    color: #127bf3; /* Färg när musen hovrar */
+}
+
+.footer {
+    background: #061d41; /* Mörkblå bakgrund */
+    color: white; /* Standardfärg för text */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+/* Rubriker i footern */
+.footer-section h2 {
+    color: white; 
+    border-bottom: 2px solid #127bf3;
+    padding-bottom: 5px;
+    display: inline-block;
+    font-size: 18px;
+}
+
+/* Länkar */
+.footer-section a {
+    color: white; /* Gör länkar vita */
+    text-decoration: none; /* Tar bort understrykning */
+}
+
+
+/* Sociala medier ikoner */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.social-icons img {
+    width: 40px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1); /* Bidlerna förstoras en bit vid hover. */
+}
+
+/* Texten längs ner */
+ .footer-bottom {
+    margin-top: 10px;
+    border-top: 1px solid white;
+    padding-top: 10px;
+}
+
+.footer-bottom a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+} 
+
+.footer-bottom a:hover {
+    color: #127bf3;
+} 
+
+
+/* Flagga */
+.footer-section .flag {
+    margin-top: 10px;
+    width: 60px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+}
+
+/*-*-*-* MEDIA QUERIES FÖR SIDFOTEN *-*-*-*/
+
+@media (max-width: 768px) {
+    .footer-section {
+        text-align: center;
+    }
+
+    .social-icons a {
+        margin: 0 10px;
+        width: 30px; /* Minska ikonerna på små skärmar */
+    }
+}
+
+
+
+/******** ROSTER DOKUMENT ********/
+
+/*Titeln över*/
+.topic{
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding-inline-start: 40px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 10px;
+    padding: 10px;
+    justify-content: center;
+}
+.image-grid img:hover {
+    transform: scale(1.05);
+    transition: 0.3s ease-in-out;
+}
+
+
+.player-card {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+}
+
+.player-card img {
+    width: 100%;
+    border-radius: 10px; /* Runda hörn på */
+}
+
+/* circkeln där informationen om spelarna finns */
+.info {
+    position: absolute;
+    bottom: 90px;
+    right: -199px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Övre halvan (ljusare blå) */
+.info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #1d41c0; 
+}
+
+/* Nedre halvan (mörkare blå) */
+.info::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #2727a2; 
+}
+
+/* Texten i övre halvan */
+.info .top-text {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    z-index: 1;
+}
+
+/* Texten i nedre halvan */
+.info .bottom-text {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    z-index: 1;
+}
+h3 {
+    margin: 5px 0;
+    font-size: 18px;
+}
+p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/*För cocherna*/
+.image-grid-coaches {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 4 equal columns */
+    gap: 10px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.player-card-coaches {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+}
+
+.player-card-coaches img {
+    width: 50%;
+    border-radius: 10px; /* Runda hörn på */
+}
+
+
+/*-*-*-* MEDIA QUERIES FÖR ARTIKLARNA *-*-*-*/
+
+/* --- För spelarkorten --- */
+@media (max-width: 768px) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolumner för medelstora skärmar */
+    }
+    
+    .player-card img {
+        width: 100%; /* Gör bilderna mer responsiva */
+        height: auto;
+    }
+    
+    .info {
+        bottom: 70px; /* Justera för att inte täcka bilden */
+        width: 130px;
+        height: 130px;
+    }
+
+    .info .top-text {
+        font-size: 12px; /* Minska textstorlek för små skärmar */
+    }
+
+    .info .bottom-text {
+        font-size: 10px;
+    }
+}
+
+/* --- För mindre skärmar (t.ex. mobiltelefoner) --- */
+@media (max-width: 480px) {
+    .image-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 kolumn för mobiltelefoner */
+    }
+
+    .player-card img {
+        width: 100%; /* Gör bilderna mer responsiva */
+    }
+
+    .info {
+        bottom: 60px; /* Justera för att inte täcka bilden */
+        width: 120px;
+        height: 120px;
+    }
+
+    .info .top-text {
+        font-size: 12px; /* Minska textstorlek för små skärmar */
+    }
+
+    .info .bottom-text {
+        font-size: 10px;
+    }
+}
+
+/* --- För att justera textstorlek för olika skärmar --- */
+@media (max-width: 1024px) {
+    h1.topic {
+        font-size: 24px; /* Minska titelstorlek för större skärmar */
+    }
+}
+
+@media (max-width: 768px) {
+    h1.topic {
+        font-size: 20px; /* Minska titelstorlek ytterligare */
+    }
+
+    h3 {
+        font-size: 16px; /* Anpassa för små skärmar */
+    }
+
+    p {
+        font-size: 12px; /* Minska textstorlek för små skärmar */
+    }
+}
+
+
+
+/******** ABOUT US DOKUMENT ********/
+
+.aboutus-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.15); /* Lite ljusare bakgrund */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Skugga */
+}
+
+.aboutus body {
+    font-family:'Times New Roman', Times, serif; /* Mer klassisk stil än Arial */
+    margin: 0;
+    padding: 0;
+    background-color: #1861a6;
+    color: white;
+    text-align: center;
+}
+
+
+
+.aboutus-container p {
+    font-size: 1em;
+    line-height: 1.8;
+    color: #ffffff;
+    text-align: justify;
+    font-style: normal;
+    align-items: center;
+}
+
+.aboutus-container h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3em;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-align: left; /* Säkerställer att titeln är till vänster */
+}
+
+.aboutus-container h2{
+    color: #ffffff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+.aboutus-container img {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: block;
+    margin: 0 auto 20px auto; /* Auto-vänster och höger centrerar blocket */
+    max-width: 500px;
+}
+
+/*-*-*-* MEDIA QUERIES FÖR OM OSS DOKUMENETET *-*-*-*/
+
+/* För mobiltelefoner (maxbredd 600px) */
+@media (max-width: 600px) {
+    .aboutus-container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .aboutus-container h1 {
+        font-size: 2em;
+        text-align: center; /* Titeln centrerad på mindre skärmar */
+    }
+
+    .aboutus-container h2 {
+        font-size: 1.2em;
+    }
+
+    .aboutus-container p {
+        font-size: 0.95em;
+        text-align: left; /* Lättare att läsa på mobil */
+    }
+
+    .aboutus-container img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* För surfplattor (601px till 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .aboutus-container {
+        padding: 30px;
+        margin: 40px auto;
+    }
+
+    .aboutus-container h1 {
+        font-size: 2.5em;
+    }
+
+    .aboutus-container p {
+        font-size: 1em;
+    }
+
+    .aboutus-container img {
+        max-width: 90%;
+    }
+}
+
+/* Extra styling för väldigt stora skärmar */
+@media (min-width: 1400px) {
+    .aboutus-container {
+        max-width: 1000px;
+    }
+
+    .aboutus-container h1 {
+        font-size: 3.5em;
+    }
+}

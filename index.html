@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- 
+**************************
+Namn: Giuliana Rivera
+skola: Ehrensvärska Gymnasiet 
+Klass: TE2A
+e-mail: giulianabelen.riverarecinos.e@skola.karlskrona.se
+Version:
+Dokument namn: index.html
+Senaste updateringen: 2025-04-12
+**************************
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="biler/fesabal_1.jpg">
+    <title>Home - ESA wbb</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+
+ <nav class="navbar">
+    <a href="index.html" class="active">Home</a>
+    <a href="roster.html">Squad</a>
+    <a href="https://fesabal.info/index.html?%7Ew=fl%7EeJyrVipWslJQMjMztDQzNLPQTTUzStY1NExN07UwMTLRNUsyTzVONLE0NE1LVNJRUMoBKU4t1nUNBvGqQLziksSSzOKSzORipVoA6zcUaA">National league</a>
+    <a href="https://fesabal.info/index.html?%7Ew=stp%7EeJyrVipWslJQMjMztDQzNLPQTTUzStY1NExN07UwMTLRNUsyTzVONLE0NE1LVNJRUMoBKU4t1nUNBvGqQLziksSSzOKSzORipVoA6zcUaA">Statistics</a>
+</nav> 
+
+
+
+
+    
+<!-- BILD KARUSELL -->
+<div class="carousel">
+    <div class="carousel-container">
+        <img src="biler/team.jpg" class="slide" alt="Team photo 1">
+        <img src="biler/team6newnew3.jpg" class="slide" alt="Team photo 2">
+        <img src="biler/photo13ny.jpg" class="slide" alt="Celebration 1">
+        <img src="biler/team10.jpg" class="slide" alt="Team photo 3">
+        <img src="biler/bild14new.jpg" class="slide" alt="Team photo 4">
+    </div>
+    <!-- Knapparna för att gå fram och tillbaka -->
+    <button class="prev" onclick="moveSlide(-1)">❮</button>
+    <button class="next" onclick="moveSlide(1)">❯</button>
+   
+    <!-- Caption text -->
+    <div class="caption" id="caption"></div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    let index = 0;
+    const captions = [
+        "One Nation",
+        "Making History",
+        "Making us proud",
+        "Gaining Experience",
+        "Las Guerreras Azules"
+    ];
+
+    function moveSlide(step) {
+        const slides = document.querySelectorAll(".slide");
+        index = (index + step + slides.length) % slides.length;
+        document.querySelector(".carousel-container").style.transform = `translateX(-${index * 100}%)`;
+        document.getElementById("caption").textContent = captions[index];
+    }
+    function autoSlide() {
+        moveSlide(1); // Flytta till nästa bild
+    }
+
+    // Starta automatisk slide var femte sekund
+    setInterval(autoSlide, 5000);
+
+    // Initiera första bildtexten
+    document.getElementById("caption").textContent = captions[index];
+
+
+</script>
+
+
+
+<!--Informationen som finns under bild karusellen-->
+  <div class="articles-container">
+    <!--Artikel 1-->
+    <div class="article">
+          <img src="biler/team7.jpg" alt="Arcticle picture 1">
+        <div class="article-text">
+            <h3><a href="https://www.fiba.basketball/en/events/fiba-centrobasket-womens-championship-2024/news/el-salvador-pulls-off-a-surprise-and-eliminates-cuba-puerto-rico-and-dominican-republic-finish-undefeated" target="blank">
+                El Salvador pulls off a surprise and eliminates Cuba
+            </a></h3>
+            <p>The Salvadoran team claims the last spot in the FIBA Women's AmeriCup 2025 and completes the Centrobasket Women's semifinalist. <br>
+                IRAPUATO (México). El Salvador came from behind to defeat Cuba and secure second place in Group B of the FIBA Centrobasket Women's Championship 2024, earning a spot in the Semi-Finals. 
+                Additionally, they claimed the last ticket to the FIBA Women's AmeriCup 2025.</p>
+        </div>
+    </div>
+
+    <!--Artikel 2-->
+    <div class="article">  
+        <img src="biler/team19.png" alt="Acticle picture 2">
+        <div class="article-text">
+            <h3><a href="https://www.elsalvador.com/deportes/otros-deportes/historica-clasificacion-bkb-femenino/1179936/2024/" target="blank">
+                El Salvador logra historica calsificacion al Premundial de baloncesto femenino. 
+            </a></h3>
+            <p>La selección mayor det baloncesto femenina logró su segunda clasificacion en la historia al FIBA AmeriCup tras eliminar a Cuba, con remontada incluida. 
+                Este viernes juega semis.</p>
+        </div>
+    </div>
+
+    <!--Artikel 3-->
+    <div class="article">
+        <img src="biler/team20.jpeg" alt="Article picture 3">
+        <div class="article-text">
+            <h3><a href="https://diarioelsalvador.com/seleccion-femenina-de-baloncesto-clasifico-al-centrobasquet-2022/256035/" target="blank">
+                Selección femenina de baloncesto clasificó al Centrobasquet 2022
+            </a></h3>
+            <p>La Selección Nacional Femenina de Baloncesto derrotó esta noche a su similar de Panamá con marcador de 81 a 60, en la última jornada del Central American Womens Championships México 2022,
+               que este domingo concluyó en la ciudad de Chihuahua, resultado tras el cual clasificó en el segundo lugar al Centrobasquet 2022.</p>
+        </div>
+    </div>
+
+</div>    
+
+
+
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- Om oss -->
+        <section class="footer-section">
+            <a href="aboutus.html" ><h2>About Us</h2></a>
+            <p>For more information about us press the button above.</p>
+            <img src="biler/flag.png" alt="El Salvador Flag" class="flag">
+        </section>
+   
+
+        <!-- Contact & Social Media -->
+        <section class="footer-section">
+            <h2>Follow Us</h2>
+            <address>
+                <p>To keep up with updates, follow our social media <br></p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/fesabal_oficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram"><img src="biler/instagram.png" alt="Instagram"></a>
+                    <a href="https://x.com/fesabal" aria-label="X"><img src="biler/x.png" alt="X"></a>
+                    <a href="https://www.facebook.com/fesabal/" aria-label="Facebook"><img src="biler/facebook.png" alt="Facebook"></a>
+                </div>
+            </address>
+        </section>
+    </div>
+    <!--Textenn längst ner -->
+    <div class="footer-bottom">
+        <a href="index.html"><small>© 2025 El Salvador women's basketball | By Giuliana</small></a>
+    </div>
+</footer>
+</body>
+</html>
